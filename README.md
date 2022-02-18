@@ -35,3 +35,23 @@ _Add to method in configuration file using "init-method" and "destroy-method"._
 ![result-of-lifecycle](https://user-images.githubusercontent.com/57812346/154432936-bd23fcb7-69f1-4c48-87b6-2943801b6233.png)
 
 _First init-method displayed then object created, finally destroy method implemented, this is the lifecycle of Spring_
+
+## Spring Annotation:
+
+Spring has lots of annotation that helps to coding easily. For example; instead of create beans in configuration file, simply scan _"Component"_ in base package and it takes these classes/constructors/setter methods/fields as a bean and directly retrieve data from spring container. 
+
+![component-scan](https://user-images.githubusercontent.com/57812346/154755653-99b1aaf7-dbed-424b-8b4c-377ae9264abf.png)
+
+_This line for scanning component annotation in given package._
+
+![component-class](https://user-images.githubusercontent.com/57812346/154755888-e40eb125-9014-42a7-8697-476309e11700.png)
+
+_Spring create id here from class name like; class -> HappyFortuneService ; id -> happyFortuneService. If you want to add manually id, you can directly implement like @Component("idName")._
+
+## Spring Annotation with Injections:
+
+We can also implement Dependency Injections using annotations. Constructor Injection, Setter Injection, Field Injection are the different types of dependency injections that we can implement with annotations. The keyword to implement injection is _"@Autowired"_. !!! You can also have different attributes to implement but if you write @Component for all of them. Application will crush so, _"@Qualifier"_ keyword decide which implementation is comes first.
+
+![qualifier-2](https://user-images.githubusercontent.com/57812346/154757147-03057937-27b5-4c43-b7aa-cc8ea4929ec0.png)
+
+_In this example; DatabaseFortuneService,HappyFortuneService,RandomFortuneService,RESTFortuneService has @Component keyword so Compailor do not decide which is the first. So in FortuneService there is @Qualifier keyword to solve this problem._
