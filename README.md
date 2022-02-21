@@ -36,6 +36,8 @@ _Add to method in configuration file using "init-method" and "destroy-method"._
 
 _First init-method displayed then object created, finally destroy method implemented, this is the lifecycle of Spring_
 
+<hr>
+
 ## Spring Annotation:
 
 Spring has lots of annotation that helps to coding easily. For example; instead of create beans in configuration file, simply scan _"Component"_ in base package and it takes these classes/constructors/setter methods/fields as a bean and directly retrieve data from spring container. 
@@ -48,6 +50,8 @@ _This line for scanning component annotation in given package._
 
 _Spring create id here from class name like; class -> HappyFortuneService ; id -> happyFortuneService. If you want to add manually id, you can directly implement like @Component("idName")._
 
+<hr>
+
 ## Spring Annotation with Injections:
 
 We can also implement Dependency Injections using annotations. Constructor Injection, Setter Injection, Field Injection are the different types of dependency injections that we can implement with annotations. The keyword to implement injection is _"@Autowired"_. !!! You can also have different attributes to implement but if you write @Component for all of them. Application will crush so, _"@Qualifier"_ keyword decide which implementation is comes first.
@@ -55,3 +59,21 @@ We can also implement Dependency Injections using annotations. Constructor Injec
 ![qualifier-2](https://user-images.githubusercontent.com/57812346/154757147-03057937-27b5-4c43-b7aa-cc8ea4929ec0.png)
 
 _In this example; DatabaseFortuneService,HappyFortuneService,RandomFortuneService,RESTFortuneService has @Component keyword so Compailor do not decide which is the first. So in FortuneService there is @Qualifier keyword to solve this problem._
+
+<hr>
+
+## Creating Bean with Annotation(No XML , Just Java Class):
+
+It is easy to create xml file and retrieve bean from spring container. However, there is another way to manage this property which is the implementation without XML file. Configuration can create by using Annotation and Java Classes. 
+
+![class-bean](https://user-images.githubusercontent.com/57812346/155000713-d83bdca5-55f7-4223-87c6-ff595b1fed63.png)
+
+_Using "Configuration" annotation, class can act as configuration file, and It can contain beans with "Bean" annotation for retrieving data from them. !!!(If you want to work with whole package, you should scan all components with "ComponentScan" annotation._
+
+<hr>
+
+![config-class](https://user-images.githubusercontent.com/57812346/155001613-313f46fa-5140-4931-a9ea-8b2df3ef716c.png)
+
+_When XML file implement in main class, ClassPathXmlApplicationContext class is using. But in this implementation, instead of ClassPathXmlApplicationContext, AnnotationConfigApplicationContext is using._ 
+
+
